@@ -1,6 +1,7 @@
 package com.equalinformation.shipping.poc.pi.views;
 
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
@@ -18,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 
 @Theme("mytheme")
 @Widgetset("com.equalinformation.shipping.poc.pi.MyAppWidgetset")
+@Title("Shipping App")
 public class ShippingUIMain extends UI {
 
     @WebServlet(urlPatterns = "/*", name = "ShippingUIMainServlet", asyncSupported = true)
