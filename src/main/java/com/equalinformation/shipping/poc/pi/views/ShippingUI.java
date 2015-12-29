@@ -2,19 +2,22 @@ package com.equalinformation.shipping.poc.pi.views;
 
 import com.equalinformation.shipping.poc.pi.data.DataProvider;
 import com.equalinformation.shipping.poc.pi.data.dummy.DummyDataProvider;
+import com.equalinformation.shipping.poc.pi.domain.User;
+import com.equalinformation.shipping.poc.pi.event.ShippingEvent;
 import com.equalinformation.shipping.poc.pi.event.ShippingEventBus;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.*;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.ValoTheme;
 
 import javax.servlet.annotation.WebServlet;
+import java.util.Locale;
 
 /**
  * Created by bpupadhyaya on 12/23/15.
@@ -35,6 +38,27 @@ public class ShippingUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+
+        setLocale(Locale.US);
+        ShippingEventBus.register(this);
+        Responsive.makeResponsive(this);
+        addStyleName(ValoTheme.UI_WITH_MENU);
+
+        updateContent();
+
+        //Browser re-size event gets fired on every browser re-resize
+        Page.getCurrent().addBrowserWindowResizeListener(
+                new Page.BrowserWindowResizeListener() {
+                    @Override
+                    public void browserWindowResized(final Page.BrowserWindowResizeEvent browserWindowResizeEvent) {
+                        ShippingEventBus.post(new ShippingEvent.BrowserResizeEvent());
+
+                    }
+                }
+        );
+
+
+        // Initial auto-generated code, clean up when appropriate
         final VerticalLayout layout = new VerticalLayout();
         layout.setMargin(true);
         setContent(layout);
@@ -43,11 +67,29 @@ public class ShippingUI extends UI {
         button.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent event) {
-                layout.addComponent(new Label("Thank you for clicking"));
+                layout.addComponent(new Label("Button clicked, this is Shipping App"));
             }
         });
         layout.addComponent(button);
+        // End of initial auto-generated code
 
+    }
+
+    /**
+     * Correct content for this UI based on current user status --- logged in or logged out
+     */
+    private void updateContent() {
+        User user = (User) VaadinSession.getCurrent().getAttribute(
+                User.class.getName());
+        if (user != null && "admin".equals(user.getRole())) {
+            // Authenticated user
+            setContent(new MainView());
+            removeStyleName("loginview");
+            getNavigator().navigateTo(getNavigator().getState());
+        } else {
+            setContent(new LoginView());
+            addStyleName("loginview");
+        }
     }
 
     /**
