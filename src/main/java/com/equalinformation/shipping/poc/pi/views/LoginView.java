@@ -22,7 +22,7 @@ public class LoginView extends VerticalLayout {
         setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);
 
         Notification notification = new Notification(
-                "Welcome to Dashboard Demo");
+                "Welcome to Shipping App POC");
         notification
                 .setDescription("<span>This application is POC, it only demonstrates an application built with the <a href=\"https://vaadin.com\">Vaadin framework</a>.</span> <span>No username or password is required, just click the <b>Sign In</b> button to continue.</span>");
         notification.setHtmlContentAllowed(true);
@@ -79,13 +79,13 @@ public class LoginView extends VerticalLayout {
         CssLayout labels = new CssLayout();
         labels.addStyleName("labels");
 
-        Label welcome = new Label("Welcome");
+        Label welcome = new Label("Welcome to ");
         welcome.setSizeUndefined();
         welcome.addStyleName(ValoTheme.LABEL_H4);
         welcome.addStyleName(ValoTheme.LABEL_COLORED);
         labels.addComponent(welcome);
 
-        Label title = new Label("Shipping Dashboard");
+        Label title = new Label("Shipping App");
         title.setSizeUndefined();
         title.addStyleName(ValoTheme.LABEL_H3);
         title.addStyleName(ValoTheme.LABEL_LIGHT);

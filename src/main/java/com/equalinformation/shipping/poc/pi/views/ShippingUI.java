@@ -53,23 +53,6 @@ public class ShippingUI extends UI {
                     }
                 }
         );
-
-
-        // Initial auto-generated code, clean up when appropriate
-//        final VerticalLayout layout = new VerticalLayout();
-//        layout.setMargin(true);
-//        setContent(layout);
-//
-//        Button button = new Button("Shipping App");
-//        button.addClickListener(new Button.ClickListener() {
-//            @Override
-//            public void buttonClick(Button.ClickEvent event) {
-//                layout.addComponent(new Label("Button clicked, this is Shipping App"));
-//            }
-//        });
-//        layout.addComponent(button);
-        // End of initial auto-generated code
-
     }
 
     /**
