@@ -7,4 +7,11 @@ import com.equalinformation.shipping.poc.pi.data.DataProvider;
  */
 public class DummyDataProvider implements DataProvider {
     //TODO
+
+    @Override
+    public int getUnreadNotificationsCount() {
+        //TODO
+        return 0;
+    }
+
 }
