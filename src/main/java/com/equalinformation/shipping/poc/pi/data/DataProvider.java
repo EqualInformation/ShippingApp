@@ -5,4 +5,9 @@ package com.equalinformation.shipping.poc.pi.data;
  */
 public interface DataProvider {
     //TODO
+
+    /**
+     * @return The number of unread notifications for the current user.
+     */
+    int getUnreadNotificationsCount();
 }

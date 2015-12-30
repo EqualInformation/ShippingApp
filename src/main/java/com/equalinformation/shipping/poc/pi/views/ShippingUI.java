@@ -10,10 +10,7 @@ import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.*;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
 import javax.servlet.annotation.WebServlet;
@@ -56,23 +53,6 @@ public class ShippingUI extends UI {
                     }
                 }
         );
-
-
-        // Initial auto-generated code, clean up when appropriate
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
-        setContent(layout);
-
-        Button button = new Button("Shipping App");
-        button.addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent event) {
-                layout.addComponent(new Label("Button clicked, this is Shipping App"));
-            }
-        });
-        layout.addComponent(button);
-        // End of initial auto-generated code
-
     }
 
     /**
