@@ -7,6 +7,7 @@ import com.google.gwt.thirdparty.guava.common.base.Predicate;
 import com.google.gwt.thirdparty.guava.common.collect.Collections2;
 
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by bpupadhyaya on 12/27/15.
@@ -42,5 +43,14 @@ public class DummyDataProvider implements DataProvider {
                 + "Cras mattis iudicium purus sit amet fermentum.");
         return user;
     }
+
+    @Override
+    public Collection<ShippingNotification> getNotifications() {
+        for (ShippingNotification notification : notifications) {
+            notification.setRead(true);
+        }
+        return Collections.unmodifiableCollection(notifications);
+    }
+
 
 }

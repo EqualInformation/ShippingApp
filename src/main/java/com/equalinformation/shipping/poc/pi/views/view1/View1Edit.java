@@ -59,7 +59,7 @@ public class View1Edit extends Window{
         save.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(final Button.ClickEvent event) {
-                listener.shippingNameEdited(nameField.getValue());
+                listener.dashboardNameEdited(nameField.getValue());
                 close();
             }
         });
@@ -72,6 +72,6 @@ public class View1Edit extends Window{
     }
 
     public interface ShippingEditListener {
-        void shippingNameEdited(String name);
+        void dashboardNameEdited(String name);
     }
 }
