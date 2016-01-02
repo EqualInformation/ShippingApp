@@ -1,6 +1,8 @@
 package com.equalinformation.shipping.poc.pi.data.dummy;
 
 import com.equalinformation.shipping.poc.pi.domain.ShippingNotification;
+import com.vaadin.addon.charts.model.style.Color;
+import com.vaadin.addon.charts.model.style.SolidColor;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -157,8 +159,8 @@ public abstract class DummyDataGenerator {
     /**
      * This comes from add-on, check whether add-on can be re-created
      */
-/*    public static Color[] chartColors = new Color[] {
+    public static Color[] chartColors = new Color[] {
             new SolidColor("#3090F0"), new SolidColor("#18DDBB"),
             new SolidColor("#98DF58"), new SolidColor("#F9DD51"),
-            new SolidColor("#F09042"), new SolidColor("#EC6464") };*/
+            new SolidColor("#F09042"), new SolidColor("#EC6464") };
 }
