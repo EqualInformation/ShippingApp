@@ -1,20 +1,32 @@
 package com.equalinformation.shipping.poc.pi.data;
 
-import com.equalinformation.shipping.poc.pi.domain.ShippingNotification;
-import com.equalinformation.shipping.poc.pi.domain.User;
+import com.equalinformation.shipping.poc.pi.domain.*;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by bpupadhyaya on 12/27/15.
  */
 public interface DataProvider {
-    //TODO
+    /**
+     * @param count
+     *            Number of transactions to fetch.
+     * @return A Collection of most recent transactions.
+     */
+    Collection<Transaction> getRecentTransactions(int count);
 
     /**
-     * @return The number of unread notifications for the current user.
+     * @param id
+     *            Movie identifier.
+     * @return A Collection of daily revenues for the movie.
      */
-    int getUnreadNotificationsCount();
+    Collection<MovieRevenue> getDailyRevenuesByMovie(long id);
+
+    /**
+     * @return Total revenues for each listed movie.
+     */
+    Collection<MovieRevenue> getTotalMovieRevenues();
 
     /**
      * @param userName
@@ -24,7 +36,37 @@ public interface DataProvider {
     User authenticate(String userName, String password);
 
     /**
+     * @return The number of unread notifications for the current user.
+     */
+    int getUnreadNotificationsCount();
+
+    /**
      * @return Notifications for the current user.
      */
     Collection<ShippingNotification> getNotifications();
+
+    /**
+     * @return The total summed up revenue of sold movie tickets
+     */
+    double getTotalSum();
+
+    /**
+     * @return A Collection of movies.
+     */
+    Collection<Movie> getMovies();
+
+    /**
+     * @param movieId
+     *            Movie's identifier
+     * @return A Movie instance for the given id.
+     */
+    Movie getMovie(long movieId);
+
+    /**
+     * @param startDate
+     * @param endDate
+     * @return A Collection of Transactions between the given start and end
+     *         dates.
+     */
+    Collection<Transaction> getTransactionsBetween(Date startDate, Date endDate);
 }
