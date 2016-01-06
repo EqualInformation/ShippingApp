@@ -15,8 +15,8 @@ public enum ShippingViewType {
     VIEW1("view 1", View1View.class, FontAwesome.HOME, true),
     VIEW2("view 2", View2View.class, FontAwesome.BAR_CHART_O, false),
     VIEW3("view 3",View3View.class, FontAwesome.TABLE, false),
-    VIEW4("view 4",View4View.class, FontAwesome.FILE_TEXT_O, true);
-//    SCHEDULE("view5", View4View.class, FontAwesome.CALENDAR_O, false); //TODO add later
+    VIEW4("view 4",View4View.class, FontAwesome.FILE_TEXT_O, true),
+    VIEW5("view 5", View4View.class, FontAwesome.CALENDAR_O, false);
 
     private final String viewName;
     private final Class<? extends View> viewClass;
